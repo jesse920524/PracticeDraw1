@@ -8,11 +8,13 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.hencoder.hencoderpracticedraw1.R;
 
 public class Practice11PieChartView extends View {
+    private static final String TAG = "Practice11PieChartView";
 
     public Practice11PieChartView(Context context) {
         super(context);
@@ -70,10 +72,16 @@ public class Practice11PieChartView extends View {
         paint.setColor(getResources().getColor(R.color.pie_red));
         canvas.drawArc(190, 140, 670, 620, -180, 120, true, paint);
 
+
         //绘制黄色扇形
         paint.setColor(getResources().getColor(R.color.pie_yellow));
         canvas.drawArc(210, 160, 690, 640, -60, 60, true, paint);
 
+        paint.setColor(getResources().getColor(R.color.black));
+        paint.setStrokeWidth(20);
+        paint.setStyle(Paint.Style.FILL);
+        Point yellowPoint = calcPoint(450, 400, 240, 0);
+        canvas.drawPoint(yellowPoint.x, yellowPoint.y, paint);
         //绘制透明色扇形
         paint.setColor(getResources().getColor(android.R.color.transparent));
         canvas.drawArc(210, 160, 690, 640, 0, 3, true, paint);
@@ -95,5 +103,36 @@ public class Practice11PieChartView extends View {
         canvas.drawArc(210, 160, 690, 640, 83, 97, true, paint);
 
 
+    }
+
+    /**计算圆上某一点的坐标
+     * @param cx 圆心x
+     * @param cy 圆心y
+     * @param radius 半径
+     * @param angle 角度 只接受正角度*/
+    private Point calcPoint(int cx,
+                            int cy,
+                            int radius,
+                            int angle){
+        Point point = new Point();
+
+        point.x = (int) (cx + radius * Math.cos(angle));
+        point.y = (int) (cy + radius * Math.sin(angle));
+        Log.d(TAG, "calcPoint: " + point);
+        return point;
+    }
+
+    private static class Point{
+        public int x;
+        public int y;
+
+        @Override
+        public String toString() {
+            final StringBuilder sb = new StringBuilder("Point{");
+            sb.append("x=").append(x);
+            sb.append(", y=").append(y);
+            sb.append('}');
+            return sb.toString();
+        }
     }
 }
