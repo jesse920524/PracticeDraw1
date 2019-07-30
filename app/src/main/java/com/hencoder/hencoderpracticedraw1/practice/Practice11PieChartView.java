@@ -80,7 +80,7 @@ public class Practice11PieChartView extends View {
         paint.setColor(getResources().getColor(R.color.black));
         paint.setStrokeWidth(20);
         paint.setStyle(Paint.Style.FILL);
-        Point yellowPoint = calcPoint(450, 400, 240, 0);
+        Point yellowPoint = calcPoint(450, 400, 240, -60, 60);
         canvas.drawPoint(yellowPoint.x, yellowPoint.y, paint);
         //绘制透明色扇形
         paint.setColor(getResources().getColor(android.R.color.transparent));
@@ -109,15 +109,19 @@ public class Practice11PieChartView extends View {
      * @param cx 圆心x
      * @param cy 圆心y
      * @param radius 半径
-     * @param angle 角度 只接受正角度*/
+     * @param startAngle 角度
+     * @param sweepAngle */
     private Point calcPoint(int cx,
                             int cy,
                             int radius,
-                            int angle){
+                            double startAngle,
+                            double sweepAngle){
+
+        double radians = Math.toRadians(startAngle + sweepAngle/2);
         Point point = new Point();
 
-        point.x = (int) (cx + radius * Math.cos(angle));
-        point.y = (int) (cy + radius * Math.sin(angle));
+        point.x = (int) (cx + radius * Math.cos(radians));
+        point.y = (int) (cy + radius * Math.sin(radians));
         Log.d(TAG, "calcPoint: " + point);
         return point;
     }
