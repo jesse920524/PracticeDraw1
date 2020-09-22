@@ -35,6 +35,7 @@ public class Practice8DrawArcView extends View {
          * startAngle 为起始角度. x轴正方向为0度 顺时针为正角度, 逆时针为负角度.
          * sweepAngle 为扫过的角度.
          * useCenter true 代表绘制扇形, false代表绘制弧形*/
+
         canvas.drawArc(400, 500, 750, 680, 0, 180, true, paint);
 
         canvas.drawArc(400, 500, 750, 680, -110, 100, true, paint);
