@@ -28,11 +28,12 @@ public class Practice5DrawOvalView extends View {
         super.onDraw(canvas);
 
 //        练习内容：使用 canvas.drawOval() 方法画椭圆
+//
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(Color.parseColor("#000000"));
-
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(Color.BLACK);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            canvas.drawOval(350, 300, 750, 500, paint);
+            canvas.drawOval(600, 500, 1000, 700, paint);
         }
     }
 }
