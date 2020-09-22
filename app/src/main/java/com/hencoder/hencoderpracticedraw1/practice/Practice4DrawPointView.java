@@ -31,14 +31,14 @@ public class Practice4DrawPointView extends View {
 //        练习内容：使用 canvas.drawPoint() 方法画点
 //        一个圆点，一个方点
 //        圆点和方点的切换使用 paint.setStrokeCap(cap)：`ROUND` 是圆点，`BUTT` 或 `SQUARE` 是方点
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setStrokeWidth(80);
-        paint.setColor(Color.parseColor("#000000"));
+          Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+          paint.setStyle(Paint.Style.FILL);
+          paint.setStrokeCap(Paint.Cap.ROUND);
+          paint.setColor(Color.BLACK);
+          paint.setStrokeWidth(80);
+          canvas.drawPoint(600, 500, paint);
 
-        paint.setStrokeCap(Paint.Cap.ROUND);
-        canvas.drawPoint(350, 400, paint);
-
-        paint.setStrokeCap(Paint.Cap.SQUARE);
-        canvas.drawPoint(700, 400, paint);
+          paint.setStrokeCap(Paint.Cap.BUTT);
+          canvas.drawPoint(1000, 500, paint);
     }
 }

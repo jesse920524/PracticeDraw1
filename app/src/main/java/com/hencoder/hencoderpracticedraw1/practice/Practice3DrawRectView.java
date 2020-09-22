@@ -27,11 +27,11 @@ public class Practice3DrawRectView extends View {
         super.onDraw(canvas);
 
 //        练习内容：使用 canvas.drawRect() 方法画矩形
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(Color.parseColor("#000000"));
-        paint.setStyle(Paint.Style.FILL);
+          Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+          paint.setStyle(Paint.Style.FILL);
+          paint.setColor(Color.BLACK);
 
-        canvas.drawRect(360, 200, 720, 560, paint);
+          canvas.drawRect(600, 300, 1000, 700, paint);
 
     }
 }
