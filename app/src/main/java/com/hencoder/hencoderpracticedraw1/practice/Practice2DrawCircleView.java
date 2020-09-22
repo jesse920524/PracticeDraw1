@@ -30,22 +30,23 @@ public class Practice2DrawCircleView extends View {
 //        一共四个圆：1.实心圆 2.空心圆 3.蓝色实心圆 4.线宽为 20 的空心圆
 
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(Color.parseColor("#000000"));
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(Color.BLACK);
 
-        canvas.drawCircle(350, 180, 180, paint);
+        canvas.drawCircle(500, 250, 200, paint);
 
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(4);
-        canvas.drawCircle(750, 180, 180, paint);
+        canvas.drawCircle(1000, 250, 200, paint);
 
         paint.setColor(Color.parseColor("#1976d2"));
         paint.setStyle(Paint.Style.FILL);
-        canvas.drawCircle(350, 580, 180, paint);
+        canvas.drawCircle(500, 750, 200, paint);
 
         paint.setColor(Color.parseColor("#000000"));
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(60);
-        canvas.drawCircle(750, 580, 180, paint);
+        paint.setStrokeWidth(80);
+        canvas.drawCircle(1000, 750, 200, paint);
 
     }
 }

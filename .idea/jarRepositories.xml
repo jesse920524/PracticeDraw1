@@ -17,6 +17,7 @@
       <option name="url" value="https://jcenter.bintray.com/" />
     </remote-repository>
     <remote-repository>
+<<<<<<< HEAD
       <option name="id" value="D:\androidsdk\extras\google\m2repository" />
       <option name="name" value="D:\androidsdk\extras\google\m2repository" />
       <option name="url" value="file:/D:/androidsdk/extras/google/m2repository" />
@@ -30,6 +31,21 @@
       <option name="id" value="D:\androidsdk\extras\m2repository" />
       <option name="name" value="D:\androidsdk\extras\m2repository" />
       <option name="url" value="file:/D:/androidsdk/extras/m2repository" />
+=======
+      <option name="id" value="C:\Users\ChessCoacher_JesseFu\AppData\Local\Android\Sdk\extras\google\m2repository" />
+      <option name="name" value="C:\Users\ChessCoacher_JesseFu\AppData\Local\Android\Sdk\extras\google\m2repository" />
+      <option name="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/extras/google/m2repository" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="C:\Users\ChessCoacher_JesseFu\AppData\Local\Android\Sdk\extras\m2repository" />
+      <option name="name" value="C:\Users\ChessCoacher_JesseFu\AppData\Local\Android\Sdk\extras\m2repository" />
+      <option name="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/extras/m2repository" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="C:\Users\ChessCoacher_JesseFu\AppData\Local\Android\Sdk\extras\android\m2repository" />
+      <option name="name" value="C:\Users\ChessCoacher_JesseFu\AppData\Local\Android\Sdk\extras\android\m2repository" />
+      <option name="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/extras/android/m2repository" />
+>>>>>>> 15281ec292b551d6120453a979a1954c8ac22bb9
     </remote-repository>
     <remote-repository>
       <option name="id" value="Google" />
