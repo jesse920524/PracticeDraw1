@@ -32,11 +32,7 @@ public class Practice10HistogramView extends View {
 //        练习内容：使用各种 Canvas.drawXXX() 方法画直方图
 
         //绘制坐标轴
-        /**y轴length: 500
-         * x轴length: 750
-         *
-         * 7个柱子(柱状图), 7个divider 共700length 右侧留50length
-         * 每个柱子80, 每个间隔20*/
+
 
 //        drawView(canvas);
          drawAxis(canvas);
@@ -45,14 +41,36 @@ public class Practice10HistogramView extends View {
 
     }
 
+    /**思路: 由于textAlign center, drawtext的绘制x应为对应的rect的起始x + 对应的rect的宽度/2
+     * y应为x轴y + 20(文字高度)*/
     private void drawText(Canvas canvas) {
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setColor(Color.WHITE);
         paint.setTextSize(24);
         paint.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText("Froyo", 164, 620, paint);
+        canvas.drawText("Froyo", 120 + 40, 620, paint);
+
+        canvas.drawText("GB", 220 + 40, 620, paint);
+
+        canvas.drawText("ICS", 320 + 40, 620, paint);
+
+        canvas.drawText("JB", 420 + 40, 620, paint);
+
+        canvas.drawText("KitKat", 520 + 40, 620, paint);
+
+        canvas.drawText("L", 620 + 40, 620, paint);
+
+        canvas.drawText("M", 720 + 40, 620, paint);
+
+        paint.setTextSize(36);
+        canvas.drawText("直方图", 460, 800, paint);
     }
 
+    /**y轴length: 500
+     * x轴length: 750
+     *
+     * 7个柱子(柱状图), 7个divider 共700length 右侧留50length
+     * 每个柱子80, 每个间隔20*/
     private void drawHistogram(Canvas canvas) {
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setColor(getResources().getColor(R.color.light_green_500));
@@ -72,6 +90,7 @@ public class Practice10HistogramView extends View {
         canvas.drawRect(720, 459, 800, 599, paint);
     }
 
+    /**绘制坐标轴*/
     private void drawAxis(Canvas canvas) {
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setStrokeWidth(2);
