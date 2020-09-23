@@ -2,6 +2,7 @@ package com.hencoder.hencoderpracticedraw1.practice;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.os.Build;
@@ -35,7 +36,96 @@ public class Practice11PieChartView extends View {
 
 //        综合练习
 //        练习内容：使用各种 Canvas.drawXXX() 方法画饼图
+        /**思路
+         * 1. 绘制基准圆, 所有arc依附于基准圆
+         * 2. 绘制各个arc 间隔角度为2度
+         * 3. 绘制特殊arc: 红色arc. 其圆心与基准圆圆心偏移. 偏移量由算法确定.
+         * 4. 确定每个arc圆弧中点, 并以此中点为原点绘制line
+         * 5. 绘制文字*/
+        drawArcs(canvas);
 
+
+
+    }
+
+    private static final int BASE_RADIUS = 300;//基准圆半径
+    private static final int GAP_ANGEL = 2;//2个arc之间的间隔角度
+    private void drawArcs(Canvas canvas) {
+        //draw base circle
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(Color.TRANSPARENT);
+        int cx = (getRight()-getLeft())/2;
+        int cy = (getBottom() - getTop())/2;
+        canvas.drawCircle(cx, cy, BASE_RADIUS, paint);
+
+        int cLeft = cx - BASE_RADIUS;
+        int cRight = cx + BASE_RADIUS;
+        int cTop = cy - BASE_RADIUS;
+        int cBottom = cy + BASE_RADIUS;
+
+        //draw arcs
+
+        int startAngel = 0;
+        startAngel += 0+GAP_ANGEL;
+        paint.setColor(getResources().getColor(R.color.pie_purple));
+        canvas.drawArc(cLeft,
+                cTop,
+                cRight,
+                cBottom,
+                startAngel,
+                5,
+                true,
+                paint);
+
+        startAngel += 5+GAP_ANGEL;
+        paint.setColor(getResources().getColor(R.color.pie_grey));
+        canvas.drawArc(cLeft,
+                cTop,
+                cRight,
+                cBottom,
+                startAngel,
+                5,
+                true,
+                paint);
+
+        startAngel += 5+GAP_ANGEL;
+        paint.setColor(getResources().getColor(R.color.pie_green));
+        canvas.drawArc(cLeft,
+                cTop, cRight,
+                cBottom,
+                startAngel,
+                60,
+                true,
+                 paint);
+
+        startAngel += 60 + GAP_ANGEL;
+        paint.setColor(getResources().getColor(R.color.pie_blue));
+        canvas.drawArc(cLeft, cTop, cRight, cBottom,
+                startAngel,
+                100,
+                true,
+                paint);
+
+        startAngel += 100 + GAP_ANGEL;
+        paint.setColor(getResources().getColor(R.color.pie_red));
+        canvas.drawArc(cLeft, cTop, cRight, cBottom,
+                startAngel,
+                120 - 4,
+                true,
+                paint);
+
+        startAngel += 120 - GAP_ANGEL + GAP_ANGEL;
+        paint.setColor(getResources().getColor(R.color.pie_yellow));
+        canvas.drawArc(cLeft, cTop, cRight, cBottom,
+                startAngel,
+                60,
+                true,
+                paint);
+    }
+
+    @Deprecated
+    private void oldDraw(Canvas canvas) {
         /**思路
          * 1.绘制base圆形
          * 2.绘制各个扇形(基于base圆形)
@@ -101,8 +191,6 @@ public class Practice11PieChartView extends View {
         //绘制蓝色扇形
         paint.setColor(getResources().getColor(R.color.pie_blue));
         canvas.drawArc(210, 160, 690, 640, 83, 97, true, paint);
-
-
     }
 
     /**计算圆上某一点的坐标
@@ -112,7 +200,7 @@ public class Practice11PieChartView extends View {
      * @param startAngle 角度
      * @param sweepAngle */
     private Point calcPoint(int cx,
-                            int cy,
+                             int cy,
                             int radius,
                             double startAngle,
                             double sweepAngle){
